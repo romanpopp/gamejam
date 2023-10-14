@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,12 +10,18 @@ public class playerMovement : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
     private Vector2 movementDirection;
+    public GameObject booster;
+    private bool boosting;
+    private float boostPower;
+    public float boostMax;
 
     private Vector2 mousePosition;
     public Camera sceneCamera;
 
     public shoot boomerangShooter;
     private bool canFire = true;
+    private bool canDash = true;
+    public float dashCD;
 
     // Start is called once
     void Start()
@@ -44,8 +51,31 @@ public class playerMovement : MonoBehaviour
             StartCoroutine(FireCooldown(boomerangShooter.fireCD));
         }
 
-        movementDirection = new Vector2(moveX, moveY);
+        if (Input.GetMouseButton(1) && canDash)
+        {
+            boostPower = boostMax;
+            boosting = true;
+            canDash = false;
+            Instantiate(booster, transform.position, transform.rotation);
+            StartCoroutine(DashCooldown(dashCD));
+            StartCoroutine(DashStop(0.2f));
+        }
+
+        if (boostPower > 0.4)
+        {
+            boostPower -= 10 * Time.deltaTime;
+        }
+        
         mousePosition = sceneCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        if (boosting)
+        {
+            movementDirection = mousePosition - rb.position;
+        }
+        else
+        {
+            movementDirection = new Vector2(moveX, moveY);
+        }
     }
 
     /// <summary>
@@ -54,10 +84,17 @@ public class playerMovement : MonoBehaviour
     void Move()
     {
         // Position
-        float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
-        movementDirection.Normalize();
-        transform.Translate(inputMagnitude * movementSpeed * Time.deltaTime * movementDirection, Space.World);
-
+        if (boosting)
+        {
+            movementDirection.Normalize();
+            transform.Translate(movementSpeed * boostPower / 1.4f * Time.deltaTime * movementDirection, Space.World);
+        }
+        else
+        {
+            float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
+            movementDirection.Normalize();
+            transform.Translate(inputMagnitude * movementSpeed * Time.deltaTime * movementDirection, Space.World);
+        }
         // Rotation
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
@@ -68,5 +105,17 @@ public class playerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         canFire = true;
+    }
+
+    IEnumerator DashCooldown(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canDash = true;
+    }
+
+    IEnumerator DashStop(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        boosting = false;
     }
 }
