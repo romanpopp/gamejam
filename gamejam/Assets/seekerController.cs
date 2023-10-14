@@ -47,8 +47,7 @@ public class seekerController : MonoBehaviour
         StartCoroutine(ResetColor());
         if (health <= 0)
         {
-            Instantiate(deathParticle);
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -59,6 +58,12 @@ public class seekerController : MonoBehaviour
     public float GetDamage()
     {
         return damage;
+    }
+
+    public void Die()
+    {
+        Instantiate(deathParticle, gameObject.transform.position, gameObject.transform.rotation);
+        Destroy(gameObject);
     }
 
     IEnumerator ResetColor()
