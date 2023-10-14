@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class seekerController : MonoBehaviour
 {
-    public GameObject ass;
     public SpriteRenderer spriteRenderer;
     public Color bodyColor;
     public Rigidbody2D rb;
@@ -29,7 +28,7 @@ public class seekerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        movementDirection = ass.transform.position - transform.position;
+        movementDirection = new Vector3(0,0) - transform.position;
         movementDirection.Normalize();
         transform.Translate(movementSpeed * Time.deltaTime * movementDirection, Space.World);
 
