@@ -17,7 +17,7 @@ public class assHealth : MonoBehaviour
         {
             case "SeekerEnemy":
                 Damage(collision.GetComponent<seekerController>().GetDamage());
-                Destroy(collision.gameObject);
+                collision.GetComponent<seekerController>().Die();
                 break;
         }
     }
