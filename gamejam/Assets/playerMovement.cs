@@ -7,8 +7,7 @@ public class playerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-    [SerializeField] float movementSpeed;
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float movementSpeed;
     private Vector2 movementDirection;
 
     private Vector2 mousePosition;

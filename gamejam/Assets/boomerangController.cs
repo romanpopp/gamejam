@@ -9,6 +9,7 @@ public class boomerangController : MonoBehaviour
     public float speed;
     public float speedDecay;
     public float rotationRate;
+    public float damage;
 
     private Vector2 movementDirection;
     
@@ -16,7 +17,6 @@ public class boomerangController : MonoBehaviour
     void FixedUpdate()
     {
         speed -= speedDecay;
-
         movementDirection = new(
         transform.position.x - player.transform.position.x,
         transform.position.y - player.transform.position.y);
@@ -42,6 +42,10 @@ public class boomerangController : MonoBehaviour
         {
             case "Player":
                 Destroy(gameObject);
+                break;
+            case "SeekerEnemy":
+                collision.GetComponent<seekerController>().Damage(damage);
+                collision.GetComponent<Rigidbody2D>().AddForce(movementDirection * 2, ForceMode2D.Impulse);
                 break;
         }
     }

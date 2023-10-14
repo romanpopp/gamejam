@@ -129,6 +129,7 @@ MonoBehaviour:
   speed: 25
   speedDecay: 0.9
   rotationRate: 20
+  damage: 3
 --- !u!70 &-8648506097853291409
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
