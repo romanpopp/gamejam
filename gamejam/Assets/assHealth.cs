@@ -28,6 +28,6 @@ public class assHealth : MonoBehaviour
     /// <param name="damage">Amount of damage.</param>
     void Damage(float damage)
     {
-        slider.value -= damage / 100;
+        slider.value -= damage;
     }
 }

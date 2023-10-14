@@ -13,6 +13,8 @@ public class seekerController : MonoBehaviour
     [SerializeField] private float rotationRate;
     private float damage;
 
+    public GameObject deathParticle;
+
     private Vector2 movementDirection;
 
     private float health;
@@ -45,6 +47,7 @@ public class seekerController : MonoBehaviour
         StartCoroutine(ResetColor());
         if (health <= 0)
         {
+            Instantiate(deathParticle);
             Destroy(gameObject);
         }
     }
