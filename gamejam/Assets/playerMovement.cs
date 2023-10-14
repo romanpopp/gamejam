@@ -14,6 +14,15 @@ public class playerMovement : MonoBehaviour
     private Vector2 mousePosition;
     public Camera sceneCamera;
 
+    public shoot boomerangShooter;
+    private bool canFire = true;
+
+    // Start is called once
+    void Start()
+    {
+        boomerangShooter.SetBoomerang(0);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -28,6 +37,13 @@ public class playerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
+
+        if (Input.GetMouseButton(0) && canFire)
+        {
+            boomerangShooter.Fire();
+            canFire = false;
+            StartCoroutine(FireCooldown(boomerangShooter.fireCD));
+        }
 
         movementDirection = new Vector2(moveX, moveY);
         mousePosition = sceneCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -47,5 +63,11 @@ public class playerMovement : MonoBehaviour
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
+    }
+
+    IEnumerator FireCooldown(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canFire = true;
     }
 }
