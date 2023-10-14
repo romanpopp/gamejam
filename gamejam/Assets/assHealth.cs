@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class assHealth : MonoBehaviour
 {
     public Slider slider;
+    public GameObject particle;
+    public Color forcefieldColor;
 
     /// <summary>
     /// Collision event controller.
@@ -29,5 +31,18 @@ public class assHealth : MonoBehaviour
     void Damage(float damage)
     {
         slider.value -= damage;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        StartCoroutine(ResetColor());
+        if (slider.value <= 0)
+        {
+            Instantiate(particle, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+    }
+
+    IEnumerator ResetColor()
+    {
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = forcefieldColor;
     }
 }

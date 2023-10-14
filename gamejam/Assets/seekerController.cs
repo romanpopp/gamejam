@@ -8,7 +8,7 @@ public class seekerController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Color bodyColor;
     public Rigidbody2D rb;
-    [SerializeField] private float movementSpeed;
+    private float movementSpeed;
     [SerializeField] private float rotationRate;
     private float damage;
 
@@ -21,6 +21,7 @@ public class seekerController : MonoBehaviour
 
     private void Start()
     {
+        movementSpeed = Random.Range(2.5f, 4f);
         damage = Random.Range(0.05f, 0.15f);
         health = maxHealth;
     }

@@ -99,11 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1ed639bc1fe1849844bdb6f66be13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ass: {fileID: 0}
   spriteRenderer: {fileID: 40047314409389141}
   bodyColor: {r: 1, g: 0.3647059, b: 0.3647059, a: 0}
   rb: {fileID: 7886671081536993983}
-  movementSpeed: 3
   rotationRate: 40
   deathParticle: {fileID: 3781474052147936162, guid: e5741e8a08bceeb4eacafdf8dfc4cecc, type: 3}
   maxHealth: 5
@@ -163,7 +161,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21133333}
