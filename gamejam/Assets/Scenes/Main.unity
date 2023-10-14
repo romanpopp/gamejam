@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1036476503}
-  movementSpeed: 10
+  movementSpeed: 6
   rotationSpeed: 500
   sceneCamera: {fileID: 519420031}
   boomerangShooter: {fileID: 1036476504}
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1036476499}
-  fireForce: 30
+  fireForce: 6
   fireCD: 0.5
   firePoint: {fileID: 1709168487}
   boomerList:
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  fireForce: 20
+  fireForce: 0
   fireCD: 1
   firePoint: {fileID: 0}
   boomerList: []
