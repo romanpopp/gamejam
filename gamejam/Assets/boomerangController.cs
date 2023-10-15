@@ -45,7 +45,7 @@ public class boomerangController : MonoBehaviour
                 break;
             case "SeekerEnemy":
                 collision.GetComponent<seekerController>().Damage(damage);
-                collision.GetComponent<Rigidbody2D>().AddForce(movementDirection * 2, ForceMode2D.Impulse);
+                collision.GetComponent<Rigidbody2D>().AddForce(movementDirection * 10, ForceMode2D.Impulse);
                 break;
         }
     }

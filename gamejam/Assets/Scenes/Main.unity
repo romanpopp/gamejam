@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.5468, y: 1.4571, z: -10}
+  m_LocalPosition: {x: 0, y: 7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2068,7 +2068,7 @@ Transform:
   m_GameObject: {fileID: 975698329}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.5468, y: 1.4571, z: -10}
+  m_LocalPosition: {x: 0, y: 7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2131,7 +2131,7 @@ Transform:
   m_GameObject: {fileID: 1084255204}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.15, z: 0}
+  m_LocalPosition: {x: 0, y: 19.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2373,7 +2373,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!212 &1458484056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2415,7 +2415,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2a0e062476ee4ef428554cab3d7e91d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd50a4b0558bc4c4f88e7d5297a3ba35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2435,8 +2435,8 @@ Transform:
   m_GameObject: {fileID: 1458484051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.5468, y: 1.4571, z: 0}
-  m_LocalScale: {x: 0.37284788, y: 0.37284788, z: 0.37284788}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalScale: {x: 0.06256601, y: 0.06256601, z: 0.06256601}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1084255205}
@@ -2478,14 +2478,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.44, y: 3.97}
+    oldSize: {x: 24.800001, y: 22.87461}
     newSize: {x: 4.44, y: 3.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.44, y: 3.97}
+  m_Size: {x: 24.800001, y: 22.87461}
   m_EdgeRadius: 0
 --- !u!1 &1502993301
 GameObject:
@@ -2499,6 +2499,7 @@ GameObject:
   - component: {fileID: 1502993304}
   - component: {fileID: 1502993303}
   - component: {fileID: 1502993305}
+  - component: {fileID: 1502993306}
   m_Layer: 5
   m_Name: quitButton
   m_TagString: Untagged
@@ -2607,6 +2608,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1502993306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502993301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6868a03ae4fee8b47bc2442383025fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 1502993305}
 --- !u!1 &1508925159
 GameObject:
   m_ObjectHideFlags: 0
