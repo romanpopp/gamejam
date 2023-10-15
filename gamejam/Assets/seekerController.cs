@@ -19,6 +19,8 @@ public class seekerController : MonoBehaviour
     private float health;
     public float maxHealth;
 
+    public scorekeeper scorekeeper;
+
     private void Start()
     {
         movementSpeed = Random.Range(2.5f, 4f);
@@ -47,6 +49,7 @@ public class seekerController : MonoBehaviour
         StartCoroutine(ResetColor());
         if (health <= 0)
         {
+            scorekeeper.ChangeScore(50);
             Die();
         }
     }
@@ -64,6 +67,11 @@ public class seekerController : MonoBehaviour
     {
         Instantiate(deathParticle, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
+    }
+
+    public void SetScoreKeeper(scorekeeper sk)
+    {
+        scorekeeper = sk;
     }
 
     IEnumerator ResetColor()

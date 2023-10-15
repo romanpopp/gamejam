@@ -15,10 +15,18 @@ public class gameOver : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "SeekerEnemy":
-                Destroy(gameObject);
                 collision.GetComponent<seekerController>().Die();
-                Destroy(player);
+                GameOver();
                 break;
         }
+    }
+
+    /// <summary>
+    /// Game over screen.
+    /// </summary>
+    void GameOver()
+    {
+        Destroy(player);
+        Destroy(gameObject);
     }
 }

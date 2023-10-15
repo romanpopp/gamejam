@@ -9,6 +9,9 @@ public class assHealth : MonoBehaviour
     public GameObject particle;
     public Color forcefieldColor;
 
+    public killfield killfield;
+    public scorekeeper scorekeeper;
+
     /// <summary>
     /// Collision event controller.
     /// </summary>
@@ -20,6 +23,7 @@ public class assHealth : MonoBehaviour
             case "SeekerEnemy":
                 Damage(collision.GetComponent<seekerController>().GetDamage());
                 collision.GetComponent<seekerController>().Die();
+                scorekeeper.ChangeScore(-150);
                 break;
         }
     }
@@ -35,6 +39,7 @@ public class assHealth : MonoBehaviour
         StartCoroutine(ResetColor());
         if (slider.value <= 0)
         {
+            killfield.Expand();
             Instantiate(particle, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }

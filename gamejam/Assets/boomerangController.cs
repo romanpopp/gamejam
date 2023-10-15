@@ -16,6 +16,10 @@ public class boomerangController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (player == null)
+        {
+            Destroy(gameObject);
+        }
         speed -= speedDecay;
         movementDirection = new(
         transform.position.x - player.transform.position.x,
