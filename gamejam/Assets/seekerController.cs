@@ -24,7 +24,7 @@ public class seekerController : MonoBehaviour
     private void Start()
     {
         movementSpeed = Random.Range(2.5f, 4f);
-        damage = Random.Range(0.05f, 0.15f);
+        damage = Random.Range(0.02f, 0.1f);
         health = maxHealth;
     }
 

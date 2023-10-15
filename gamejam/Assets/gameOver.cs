@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameOver : MonoBehaviour
 {
     public GameObject player;
+    public Image overlay;
+    public TextMeshProUGUI text;
+    public scorekeeper scorekeeper;
 
     /// <summary>
     /// Collision event controller.
@@ -26,7 +32,13 @@ public class gameOver : MonoBehaviour
     /// </summary>
     void GameOver()
     {
+
         Destroy(player);
+        overlay.color = new(0.1f, 0.1f, 0.1f, 0.8f);
+        text.alpha = 1;
+
+        text.text = "Game Over!\nScore: " + scorekeeper.GetScore();
+
         Destroy(gameObject);
     }
 }
